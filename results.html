@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Results</title>
+    <script>
+        function fetchResults() {
+          fetch('form.html') // Replace with the URL of the page that processes the form
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('results').innerHTML = data;
+            })
+            .catch(error => {
+              console.log('Error:', error);
+            });
+        }
+
+        // Fetch results every 5 seconds
+        setInterval(fetchResults, 5000);
+    </script>
+</head>
+<body>
+<h1>Form Results</h1>
+
+<div id="results"></div>
+</body>
+</html>
