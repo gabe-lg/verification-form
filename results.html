@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Form Results</title>
-    <script>
-        function fetchResults() {
-          fetch('form.html') // Replace with the URL of the page that processes the form
-            .then(response => response.text())
-            .then(data => {
-              document.getElementById('results').innerHTML = data;
-            })
-            .catch(error => {
-              console.log('Error:', error);
-            });
-        }
-
-        // Fetch results every 5 seconds
-        setInterval(fetchResults, 5000);
-    </script>
+  <title>Form Response</title>
 </head>
 <body>
-<h1>Form Results</h1>
+  <h1>Form Response</h1>
+  
+  <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
 
-<div id="results"></div>
+    echo "<p>Name: " . $name . "</p>";
+    echo "<p>Email: " . $email . "</p>";
+  }
+  ?>
 </body>
 </html>
